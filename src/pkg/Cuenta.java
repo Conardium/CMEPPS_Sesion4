@@ -18,11 +18,11 @@ public class Cuenta {
 		}
 
 		public void ingreso(double i) {
-			saldo += i;
+			saldo =100;
 		}
 
 		public void reintegro(double i) {
-			saldo -= i;
+			saldo =50;
 		}
 		
 		
