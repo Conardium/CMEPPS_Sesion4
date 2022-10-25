@@ -16,13 +16,23 @@ public class Cuenta {
 		public double getSaldo() {
 			return saldo;
 		}
-
-		public void ingreso(double i) {
-			saldo =100;
+		
+		public String getmNumero() {
+			return mNumero;
 		}
 
-		public void reintegro(double i) {
-			saldo =50;
+		public void ingreso(double i) throws Exception {
+			if(i < 0.0)
+				throw new Exception("El ingreso debe de ser positivo");
+			else
+				saldo +=i;
+		}
+
+		public void reintegro(double i) throws Exception{
+			if((saldo - i) < -500.0)
+				throw new Exception("Fondos insuficientes (saldo " + getSaldo() + "€) en la cuenta " + getmNumero());
+			else
+				saldo-=i;
 		}
 		
 		

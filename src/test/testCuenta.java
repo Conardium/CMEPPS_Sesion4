@@ -12,11 +12,13 @@ import pkg.Cuenta;
 
 class testCuenta {
 
-	static Cuenta c;
+	static Cuenta cta12345, cta67890, c;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		c = new Cuenta("1234", "Pepe", 50.0);
+		c = new Cuenta("123", "Antonio", 50.0);
+		cta12345 = new Cuenta("12345", "Pepe", 50.0);
+		cta67890 = new Cuenta("67890", "Manuel", 0.0);	
 	}
 
 	@AfterAll
@@ -32,15 +34,16 @@ class testCuenta {
 	}
 
 	@Test
-	void testIngresar() {
+	void testIngresar() throws Exception{
 		c.ingreso(50.0);
 		assertEquals(100.0, c.getSaldo());
 	}
 	
 	@Test
-	void testReintegrar() {
+	void testReintegrar() throws Exception{
 		c.reintegro(50.0);
 		assertEquals(50.0, c.getSaldo());
 	}
-
+	
+	
 }
