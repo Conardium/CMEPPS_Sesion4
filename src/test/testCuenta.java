@@ -45,5 +45,29 @@ class testCuenta {
 		assertEquals(50.0, c.getSaldo());
 	}
 	
-	
+	@Test
+	void test0014() throws Exception{
+		cta12345.reintegro(200.0);
+		cta67890.reintegro(350.0);
+		cta12345.ingreso(100.0);
+		try {
+			cta67890.reintegro(200.0);
+			fail("No ha saltado bien la excepcion");
+		}catch(Exception e) {
+			
+		}
+		
+		cta67890.reintegro(150.0);
+		cta12345.reintegro(200.0);
+		cta67890.ingreso(50.0);
+		try {
+			cta67890.reintegro(100.0);
+			fail("No ha saltado bien la excepcion");
+		}catch(Exception e){
+			
+		}
+		
+		assertEquals(-250.0, cta12345.getSaldo());
+		assertEquals(-450.0, cta67890.getSaldo());
+	}
 }

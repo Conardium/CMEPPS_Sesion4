@@ -30,7 +30,7 @@ public class Cuenta {
 
 		public void reintegro(double i) throws Exception{
 			if((saldo - i) < -500.0)
-				throw new Exception("Fondos insuficientes (saldo " + getSaldo() + "€) en la cuenta " + getmNumero());
+				throw new Exception("Fondos insuficientes (saldo " + getSaldo() + "€) en la cuenta " + getmNumero() + "para el reintegro de " + i + "€");
 			else
 				saldo-=i;
 		}
